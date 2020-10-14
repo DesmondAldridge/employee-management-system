@@ -7,6 +7,9 @@ let connection = mysql.createConnection({
     password: '',
     database: 'ems_db'
 });
+connection.connect(function (err) {
+    if (err) throw err;
+    console.log("connected as id " + connection.threadId);
+});
 
-
-module.exports = server;
+module.exports = {server};
