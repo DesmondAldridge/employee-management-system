@@ -1,5 +1,4 @@
 const mysql = require('mysql');
-const begin = require('')
 
 let connection = mysql.createConnection({
     host: 'localhost',
@@ -115,8 +114,7 @@ S:::::::::::::::SS   y:::::y         s:::::::::::ss          tt:::::::::::tt  ee
                                                                                                                                                                                                                 
                                                                                                                                                                                                                 
 `)},3000);
-      
-
+    
 });
 
 module.exports = {server};
