@@ -4,7 +4,7 @@ const inquirer = require('inquirer');
 const department = require("./department");
 const role = require("./role");
 const employee = require("./employee");
-const connection = require("./server");
+const connection = require("./connection");
 
 function inquirerPrompts() {
     inquirer
