@@ -4,7 +4,7 @@
   ## DESCRIPTION
   This command line application that allows the user (presumably the business owner) to view, add, and update departments, roles, and employees to a company database.
 
-![roster](assets\img\got_white_book.gif)
+![roster](./assets/img/got_white_book.gif)
 
   ## TABLE OF CONTENTS
   - [Installation](#installation)
