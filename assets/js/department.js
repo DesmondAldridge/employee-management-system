@@ -6,9 +6,7 @@ const connection = require('./config/connection.js');
 
 function addDept() {
   
-    inquirer
-
-      .prompt([
+    inquirer.prompt([
         {
           name: "newDepartment",
           type: "input",
@@ -17,14 +15,29 @@ function addDept() {
       ]).then(function(answer) {
         
         const query = "INSERT INTO department SET ?";
-        const newDepartment = {
+        const theNewDepartment = {
           name: answer.newDepartment,
         };
         
-
-        connection.query(query, newDepartment, function(err, res) {
+        connection.query(query, theNewDepartment, function(err, res) {
           if (err) throw err;
           begin.inquirerPrompts;
         });
-      });
-  };
+    });
+};
+
+function viewDept() {
+    
+    const query = "SELECT * FROM department";
+
+        connection.query(query, function(err, res) {
+          if (err) throw err;
+          
+          const table = cTable.getTable(res);
+          console.log(table);
+
+          begin.inquirerPrompts;
+        });
+};
+
+module.exports = department;
