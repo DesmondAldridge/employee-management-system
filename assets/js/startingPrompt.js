@@ -1,11 +1,8 @@
+//Dependencies/Imports
 const inquirer = require('inquirer');
+const answers = require('./promptAnswers.js')
 
-
-const department = require("./department");
-const role = require("./role");
-const employee = require("./employee");
-const connection = require("./connection");
-
+//Initial Prompt
 function inquirerPrompts() {
     inquirer
       .prompt({
@@ -24,50 +21,7 @@ function inquirerPrompts() {
         "Update Employee",
         "Exit",
         ],
-    }).then(function(answers) {
+    }).then(answers.answers);
+}
 
-        switch(answers) {
-
-            case "Add Department":
-            department.create();
-            break;
-        
-            case "Add Role":
-            role.create();
-            break;
-
-            case "Add Employee":
-            employee.create();
-            break;
-            
-            case "View Departments":
-            department.read();
-            break;
-
-            case "View Roles":
-            role.read();
-            break;
-
-            case "View Employees":
-            employee.read();
-            break;
-
-            case "Update Department":
-            department.update();
-            break;
-
-            case "Update Role":
-            role.update();
-            break;
-
-            case "Update Employee Role":
-            employee.updateRole();
-            break;
-            
-            case "Exit":
-            default:
-            connection.end();
-           };
-    }),
-
-module.exports = {startingPrompt}
+module.exports = startingPrompt;

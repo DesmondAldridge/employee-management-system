@@ -117,4 +117,4 @@ S:::::::::::::::SS   y:::::y         s:::::::::::ss          tt:::::::::::tt  ee
     
 });
 
-module.exports = {connection};
+module.exports = connection;
