@@ -68,12 +68,12 @@ function updateEmployee() {
     ]).then(function(answer) {
       
       const query = "UPDATE employee SET ? WHERE ?";
-      const updatedRole = [{
+      const updatedEmployee = [{
         role_id: answer.employeeRole,
         surname: answer.employeeID,
       }];
       
-      connection.query(query, newEmployee, function(err, res) {
+      connection.query(query, updatedEmployee, function(err, res) {
         if (err) throw err;
         begin.inquirerPrompts;
       });

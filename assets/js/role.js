@@ -52,4 +52,43 @@ function viewRole() {
         });
 };
 
+function updateRole() {
+  
+  inquirer.prompt([
+      {
+        name: "roleID",
+        type: "input",
+        message: "Please enter the ID of the role you wish to update:",
+      },
+      {
+        name: "newTitle",
+        type: "input",
+        message: "Please enter the new title/name of the role you wish to update:" 
+      },
+      {
+        name: "newSalary",
+        type: "input",
+        message: "Please enter the new salary of the role you wish to update:" 
+      },
+      {
+        name: "newDeptID",
+        type: "input",
+        message: "Please enter the new department (by ID) of the role you wish to update:" 
+      },
+    ]).then(function(answer) {
+      
+      const query = "UPDATE role SET ? WHERE ?";
+      const updatedRole = [{
+        title: answer.newTitle,
+        salary: answer.newSalary,
+        department_id: answer.newDeptID,
+      }];
+      
+      connection.query(query, updatedRole, function(err, res) {
+        if (err) throw err;
+        begin.inquirerPrompts;
+      });
+  });
+};
+
 module.exports = role;

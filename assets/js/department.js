@@ -40,4 +40,31 @@ function viewDept() {
         });
 };
 
+function updateDepartment() {
+  
+  inquirer.prompt([
+      {
+        name: "deptID",
+        type: "input",
+        message: "Please enter the ID of the department you wish to update:",
+      },
+      {
+        name: "newName",
+        type: "input",
+        message: "Please enter the new name of the department you wish to update:" 
+      }
+    ]).then(function(answer) {
+      
+      const query = "UPDATE department SET ? WHERE ?";
+      const updatedDept = [{
+        name: answer.newName,
+      }];
+      
+      connection.query(query, updatedDept, function(err, res) {
+        if (err) throw err;
+        begin.inquirerPrompts;
+      });
+  });
+};
+
 module.exports = department;
